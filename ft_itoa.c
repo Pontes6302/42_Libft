@@ -39,6 +39,8 @@ char	*ft_itoa(int n)
 	nn = (long)n;
 	d = countdigits(nn);
 	ret = malloc((d + 1) * sizeof(char));
+	if (!ret)
+		return (0);
 	if (nn < 0)
 	{
 		ret[0] = '-';
