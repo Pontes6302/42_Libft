@@ -39,8 +39,10 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		start;
 
+	if (!s)
+		return (0);
 	res = (char **) malloc((count(s, c) + 1) * sizeof(char *));
-	if (!s || !res)
+	if (!res)
 		return (0);
 	i = 0;
 	j = 0;
