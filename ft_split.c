@@ -32,18 +32,12 @@ int	count(char const *s, char c)
 	return (w);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_return(char const *s, char c, char **res)
 {
-	char	**res;
 	int		i;
 	int		j;
 	int		start;
 
-	if (!s)
-		return (0);
-	res = (char **) malloc((count(s, c) + 1) * sizeof(char *));
-	if (!res)
-		return (0);
 	i = 0;
 	j = 0;
 	while (s[i])
@@ -60,4 +54,16 @@ char	**ft_split(char const *s, char c)
 	}
 	res[j] = NULL;
 	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
+
+	if (!s)
+		return (0);
+	res = (char **) malloc((count(s, c) + 1) * sizeof(char *));
+	if (!res)
+		return (0);
+	return (ft_return(s, c, res));
 }
